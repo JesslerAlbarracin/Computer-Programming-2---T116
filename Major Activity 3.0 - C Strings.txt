@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+ 
+int main() 
+{
+    char s[200];  
+    int a[200],i,n,k=0,j=0,l,temp;
+ 
+    printf("Enter  the string : ");
+    gets(s);/*Read the entered string using gets(s). Initialize n=length of the string.*/
+    n=strlen(s);
+ 
+    for(i=0;i<n/2;i++) /*Swap the starting index element s[i] with the last index element s[n-i-1].
+    Repeat this step using for loop for(i=0;i<n/2;i++).After all iterations of for loop, 
+    we will get reverse ordered string.*/ 
+    {
+    	 	temp=s[i];
+			s[i]=s[n-1-i];
+			s[n-1-i]=temp;
+ 
+ 	}
+ 
+ 	for(i=0;s[i];i++) /*Insert the location values of the white spaces present in the string, 
+ 	in the array a[] using for loop for(i=0;s[i];i++) , by increasing i,k values.*/
+ 	{
+        if(s[i]==' ')
+        {
+		  a[k++]=i;		   
+	    }
+    }
+   
+    a[k]=i;
+       
+    for(i=0;i<=k;i++)
+	{
+		n=a[i]-j;
+		
+		for(l=0;l<n/2;l++)/*The inner for loop iterates through 
+		the word with the structure for(l=0;l<n/2;l++). swap the element with starting index(l+j) 
+		with element with ending index (n-l-1) by increasing the l value.*/
+		{
+			temp=s[l+j];
+			s[l+j]=s[a[i]-1-l];
+			s[a[i]-1-l]=temp;
+		}
+		j=a[i]+1;
+	 
+	}  
+	    printf("\nReversed ordered words: \n%s",s);
+ 
+     
+    return 0;
+}
