@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+int main()
+{
+    int grades[5], c, n, sum = 0, average;
+    printf("\nEnter five numbers:");
+    scanf("%d", &n);
+    
+    if(n<=5){
+    for(c=0; c < n; ++c){
+    printf("%d.", c+1);
+    scanf("%d", &grades[c]);
+    
+    sum += grades [c];
+    }
+    
+    average = sum / n;
+    printf("average = %d", average);
+    return 0;
+    }
+    else{
+    printf("\nlimit to 5 only numbers");
+    }
+}
